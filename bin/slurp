@@ -1,0 +1,39 @@
+#!/usr/bin/env ruby
+
+# Slurps stories from the given file (stories.txt by default) and creates
+# Pivotal Tracker stories from them. Useful during story carding sessions
+# when you want to capture a number of stories quickly without clicking
+# your way through the Tracker UI.
+
+# Note that if you include labels in stories.txt, they don't appear
+# immediately in Tracker. You'll have to refresh Tracker after a few seconds
+# to see them.
+
+$:.unshift(File.join(File.dirname(File.dirname(__FILE__)),'lib'))
+require 'rubygems'
+require 'slurper'
+require 'optparse'
+
+options = {}
+OptionParser.new do |opts|
+  opts.on("-r", "--reverse", "Reverse story creation order") do |v|
+    options[:reverse] = v
+  end
+end.parse!
+
+story_file = ARGV.empty? ? "stories.txt" : ARGV[0]
+
+story_lines = Array.new
+stories = Array.new
+IO.foreach(story_file) do |line|
+  if line[0,2] != "=="
+    story_lines << line
+  else
+    stories << Story.new.parse(story_lines)
+    story_lines.clear
+  end
+end
+
+stories.reverse! unless options[:reverse]
+
+stories.each { |story| story.save }
