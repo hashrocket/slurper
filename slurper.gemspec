@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{slurper}
-  s.version = "0.0.0"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Hashrocket Dev Team"]
-  s.date = %q{2009-12-15}
+  s.authors = ["Wes Gibbs", "Adam Lowe", "Stephen Caudill", "Tim Pope"]
+  s.date = %q{2009-12-16}
   s.default_executable = %q{slurp}
   s.description = %q{
       Slurps stories from the given file (stories.txt by default) and creates
@@ -17,11 +17,10 @@ Gem::Specification.new do |s|
       when you want to capture a number of stories quickly without clicking
       your way through the Tracker UI.
     }
-  s.email = %q{adambenjaminlowe@gmail.com}
+  s.email = %q{info@hashrocket.com}
   s.executables = ["slurp"]
   s.extra_rdoc_files = [
-    "LICENSE",
-     "README.rdoc"
+    "README.rdoc"
   ]
   s.files = [
     "bin/slurp",
@@ -33,6 +32,9 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{takes a formatted story file and puts it on Pivotal Tracker}
+  s.test_files = [
+    "spec/story_spec.rb"
+  ]
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
