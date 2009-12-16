@@ -1,9 +1,9 @@
 = slurper
 
-Description goes here.
+Slurper allows you to quickly compose your stories in a text file and import them into Pivotal Tracker.
 
 == Note on Patches/Pull Requests
- 
+
 * Fork the project.
 * Make your feature addition or bug fix.
 * Add tests for it. This is important so I don't break it in a
@@ -12,6 +12,47 @@ Description goes here.
   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
 
-== Copyright
+== Setup
 
-Copyright (c) 2009 Adam. See LICENSE for details.
+gem install hashrocket-slurper
+
+== Config
+
+Create a story_defaults.yml file in your working directory for project stories.
+
+=== Example
+
+  project_id: 1234
+  token: 123abc123abc123abc
+  name: Untitled
+  description: "In order to \nAs a \nI want \n\nAcceptance:\n* "
+  requested_by: Jane Stakeholder
+  labels: slurper
+
+The project_id tells tracker which project to add your stories to. It can be found on the project settings or the url for the project.
+
+The token can be found on your personal profile page in Pivotal Tracker.
+
+The name, labels and description fields provide slurper with default values for story titles and descriptoins if you don't provide them in your stories.txt file.
+
+The requested_by field should be the name of your project stakeholder exactly as it appears in tracker.
+
+== Usage
+
+Create a stories.txt file and compose your stories in the slurper story format.
+
+=== Example
+
+  ==
+  name
+    User Create Something
+  description
+    In order to accomplish some business value
+    As a User
+    I want to create something
+
+  labels
+    things
+  ==
+
+Note: stories must have == before and after each story.
