@@ -14,7 +14,9 @@ Slurper allows you to quickly compose your stories in a text file and import the
 
 == Setup
 
-gem install slurper
+  $sudo gem install slurper
+
+You must install with sudo currently.
 
 == Config
 
