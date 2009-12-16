@@ -14,7 +14,7 @@ Slurper allows you to quickly compose your stories in a text file and import the
 
 == Setup
 
-gem install hashrocket-slurper
+gem install slurper
 
 == Config
 
