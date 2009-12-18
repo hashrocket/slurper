@@ -21,7 +21,7 @@ OptionParser.new do |opts|
   end
 end.parse!
 
-story_file = ARGV.empty? ? "stories.txt" : ARGV[0]
+story_file = ARGV.empty? ? "stories.slurper" : ARGV[0]
 
 story_lines = Array.new
 stories = Array.new
