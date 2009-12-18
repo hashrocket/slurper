@@ -5,14 +5,14 @@
 
 Gem::Specification.new do |s|
   s.name = %q{slurper}
-  s.version = "0.2.0"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Wes Gibbs", "Adam Lowe", "Stephen Caudill", "Tim Pope"]
   s.date = %q{2009-12-18}
   s.default_executable = %q{slurp}
   s.description = %q{
-      Slurps stories from the given file (stories.txt by default) and creates
+      Slurps stories from the given file (stories.slurper by default) and creates
       Pivotal Tracker stories from them. Useful during story carding sessions
       when you want to capture a number of stories quickly without clicking
       your way through the Tracker UI.

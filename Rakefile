@@ -7,7 +7,7 @@ begin
     gem.name = "slurper"
     gem.summary = %Q{takes a formatted story file and puts it on Pivotal Tracker}
     gem.description = %Q{
-      Slurps stories from the given file (stories.txt by default) and creates
+      Slurps stories from the given file (stories.slurper by default) and creates
       Pivotal Tracker stories from them. Useful during story carding sessions
       when you want to capture a number of stories quickly without clicking
       your way through the Tracker UI.
