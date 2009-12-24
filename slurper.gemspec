@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{slurper}
-  s.version = "0.2.1"
+  s.version = "0.2.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Wes Gibbs", "Adam Lowe", "Stephen Caudill", "Tim Pope"]
-  s.date = %q{2009-12-18}
+  s.date = %q{2009-12-24}
   s.default_executable = %q{slurp}
   s.description = %q{
       Slurps stories from the given file (stories.slurper by default) and creates
