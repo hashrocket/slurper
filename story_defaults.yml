@@ -1,6 +1,3 @@
 project_id: 1234 # found in the project settings or address bar in Tracker
 token: 123abc123abc123abc # found on your profile page in Tracker
-name: Untitled
-description: "In order to \nAs a \nI want \n\nAcceptance:\n* "
 requested_by: Jane Hashrocket # must be a user on the project
-labels: slurper # these take a few seconds to show up in Tracker

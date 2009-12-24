@@ -24,10 +24,7 @@ Create a story_defaults.yml file in your working directory for project stories.
 
   project_id: 1234
   token: 123abc123abc123abc
-  name: Untitled
-  description: "In order to \nAs a \nI want \n\nAcceptance:\n* "
   requested_by: Jane Stakeholder
-  labels: slurper
 
 The project_id tells tracker which project to add your stories to. It can be found on the project settings or the url for the project.
 
