@@ -2,6 +2,8 @@
 
 Slurper allows you to quickly compose your stories in a text file and import them into Pivotal Tracker.
 
+Works great with slurper.vim! (http://github.com/alowe/vim-slurper)
+
 == Note on Patches/Pull Requests
 
 * Fork the project.
