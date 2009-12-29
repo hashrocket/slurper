@@ -57,3 +57,6 @@ Create a stories.slurper file and compose your stories in the slurper story form
   ==
 
 Note: stories must have == before and after each story.
+
+
+Credit - Wes Gibbs (http://wgibbs.github.com) thought of and wrote slurper as a ruby script. It was later packaged and released as a gem by his fellow Rocketeers after using it and finding it extremely useful.
