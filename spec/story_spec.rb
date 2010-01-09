@@ -53,13 +53,6 @@ describe Story do
       @story.name.should == "Profit"
     end
 
-    it "should use the default value for the description" do
-      @story.description.should == "In order to \nAs a \nI want \n\nAcceptance:\n* "
-    end
-
-    it "should use the default value for the labels" do
-      @story.labels.should == "slurper"
-    end
   end
 
   context "given empty attributes" do
