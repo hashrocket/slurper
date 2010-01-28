@@ -15,6 +15,7 @@ class Story < ActiveResource::Base
 
   def parse(story_lines)
     @story_lines = story_lines
+    parse_type
     parse_name
     parse_description
     parse_labels
@@ -22,6 +23,18 @@ class Story < ActiveResource::Base
   end
 
   private
+
+  def parse_type
+    @story_lines.each_with_index do |line, i|
+      if start_of_value?(line, 'type')
+        if starts_with_whitespace?(@story_lines[i+1])
+          @attributes["story_type"] = @story_lines[i+1].strip
+        else
+          @attributes.delete("story_type")
+        end
+      end
+    end
+  end
 
   def parse_name
     @story_lines.each_with_index do |line, i|

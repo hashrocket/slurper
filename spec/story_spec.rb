@@ -41,6 +41,10 @@ describe Story do
     it "parses the label correctly" do
       @story.labels.should == "money,power,fame"
     end
+
+    it "parses the story type correctly" do
+      @story.story_type.should == "feature"
+    end
   end
 
   context "given only a name" do

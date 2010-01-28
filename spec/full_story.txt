@@ -1,3 +1,5 @@
+type
+  feature
 name
   Profit
 description
