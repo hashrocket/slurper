@@ -38,7 +38,7 @@ The requested_by field should be the name of your project stakeholder exactly as
 
 == Usage
 
-Create a stories.slurper file and compose your stories in the slurper story format. In your working directory use the slurp command to import your stories from the stories.slurper file into Pivotal Tracker. If you have multiple story files for a project, stories.slurper and stories2.slurperfor example you can explicitly provide which file to slurp.
+Create a stories.slurper file and compose your stories in the slurper story format. In your working directory use the slurp command to import your stories from the stories.slurper file into Pivotal Tracker. If you have multiple story files for a project, stories.slurper and stories2.slurper for example you can explicitly provide which file to slurp.
 
   $slurp stories2.slurper
 
