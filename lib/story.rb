@@ -3,7 +3,7 @@ require 'active_resource'
 class Story < ActiveResource::Base
 
   @@defaults = YAML.load_file('story_defaults.yml')
-  self.site = "http://www.pivotaltracker.com/services/v2/projects/#{@@defaults['project_id']}"
+  self.site = "http://www.pivotaltracker.com/services/v3/projects/#{@@defaults['project_id']}"
   headers['X-TrackerToken'] = @@defaults.delete("token")
   attr_accessor :story_lines
 
