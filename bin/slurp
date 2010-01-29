@@ -36,4 +36,17 @@ end
 
 stories.reverse! unless options[:reverse]
 
-stories.each { |story| story.save }
+stories.each_with_index do |story, index|
+  begin
+    story.save
+    puts "Added \"#{story.name}\""
+  rescue ActiveResource::ServerError, ActiveResource::ResourceNotFound => e
+    msg = "Slurp failed on story "
+    if story.attributes["name"]
+      msg << story.attributes["name"]
+    else
+      msg << "##{options[:reverse] ? index + 1 : stories.size - index }"
+    end
+    puts msg + ".  Error: #{e}"
+  end
+end
