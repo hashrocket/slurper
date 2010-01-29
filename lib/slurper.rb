@@ -46,10 +46,10 @@ class Slurper
 
   def scrub_descriptions
     stories.each do |story|
-      if story.attributes["description"]
+      if story.respond_to? :description
         story.description = story.description.gsub("  ", "").gsub(" \n", "\n")
       end
-      if story.attributes["description"] && story.description == ""
+      if story.respond_to?(:description) && story.description == ""
         story.attributes["description"] = nil
       end
     end
