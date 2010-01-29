@@ -36,10 +36,11 @@ class Slurper
   end
 
   def create_stories
+    puts "Preparing to slurp #{stories.size} stories into Tracker..."
     stories.each_with_index do |story, index|
       begin
         story.save
-        puts "Added \"#{story.name}\""
+        puts "#{index+1}. #{story.name}"
       rescue ActiveResource::ServerError, ActiveResource::ResourceNotFound => e
         msg = "Slurp failed on story "
         if story.attributes["name"]
