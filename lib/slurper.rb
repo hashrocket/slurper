@@ -24,17 +24,6 @@ class Slurper
     scrub_descriptions
   end
 
-  def scrub_descriptions
-    stories.each do |story|
-      if story.attributes["description"]
-        story.description = story.description.gsub("  ", "").gsub(" \n", "\n")
-      end
-      if story.attributes["description"] && story.description == ""
-        story.attributes["description"] = nil
-      end
-    end
-  end
-
   def create_stories
     puts "Preparing to slurp #{stories.size} stories into Tracker..."
     stories.each_with_index do |story, index|
@@ -52,4 +41,18 @@ class Slurper
       end
     end
   end
+
+  protected
+
+  def scrub_descriptions
+    stories.each do |story|
+      if story.attributes["description"]
+        story.description = story.description.gsub("  ", "").gsub(" \n", "\n")
+      end
+      if story.attributes["description"] && story.description == ""
+        story.attributes["description"] = nil
+      end
+    end
+  end
+
 end
