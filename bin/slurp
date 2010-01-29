@@ -26,11 +26,11 @@ story_file = ARGV.empty? ? "stories.slurper" : ARGV[0]
 story_lines = Array.new
 stories = Array.new
 IO.foreach(story_file) do |line|
-  if line[0,2] != "=="
-    story_lines << line
-  else
+  if line[0,2] == "==" && story_lines.any?
     stories << Story.new.parse(story_lines)
     story_lines.clear
+  else
+    story_lines << line
   end
 end
 
