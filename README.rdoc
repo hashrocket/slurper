@@ -20,43 +20,55 @@ Works great with slurper.vim! (http://github.com/alowe/vim-slurper)
 
 == Config
 
-Create a story_defaults.yml file in your working directory for project stories.
+Slurper requires a .slurper.yml file in your home directory. This file contains your Tracker API information and default values for stories.
 
 === Example
 
   project_id: 1234
   token: 123abc123abc123abc
+  name: Untitled
   requested_by: Jane Stakeholder
+  description: Change me
+  labels: slurper
 
 The project_id tells tracker which project to add your stories to. It can be found on the project settings or the url for the project.
 
 The token can be found on your personal profile page in Pivotal Tracker.
 
-The name, labels and description fields provide slurper with default values for story titles and descriptoins if you don't provide them in your stories.slurper file.
+The name, labels and description fields provide slurper with default values for story titles and descriptions if you don't provide them in your stories.slurper file.
 
 The requested_by field should be the name of your project stakeholder exactly as it appears in tracker.
 
 == Usage
 
-Create a stories.slurper file and compose your stories in the slurper story format. In your working directory use the slurp command to import your stories from the stories.slurper file into Pivotal Tracker. If you have multiple story files for a project, stories.slurper and stories2.slurper for example you can explicitly provide which file to slurp.
+Create a stories.slurper file and compose your stories in the slurper story format. In your working directory use the slurp command to import your stories from the stories.slurper file into Pivotal Tracker. Slurper looks for a stories.slurper file in your current directory by default, however, you can provide an alternate story source file if necessary.
 
-  $slurp stories2.slurper
+  $slurp ~/mystories.txt
 
-=== Example
+=== Example stories.slurper
 
-  ==
   name
-    User Create Something
+    User Creates Something
   description
     In order to accomplish some business value
     As a User
     I want to create something
 
   labels
-    things
+    thing one
+  ==
+  name
+    User Creates Something Else
+  description
+    In order to accomplish some other business value
+    As a User
+    I want to create some other thing
+
+  labels
+    thing two
   ==
 
-Note: stories must have == before and after each story.
+Note: the story source file is whitespace-sensitive. Be sure the value for each key is indented with two spaces beneath each key. Also, delineate stories with a double-equals on its own line.
 
 
 Credit - Wes Gibbs (http://wgibbs.github.com) thought of and wrote slurper as a ruby script. It was later packaged and released as a gem by his fellow Rocketeers after using it and finding it extremely handy.
