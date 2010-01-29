@@ -5,6 +5,9 @@
 # when you want to capture a number of stories quickly without clicking
 # your way through the Tracker UI.
 
+# Default story values and API token information should be provided in a
+# ~/.slurper.yml file.
+
 # Note that if you include labels in stories.slurper, they don't appear
 # immediately in Tracker. You'll have to refresh Tracker after a few seconds
 # to see them.
