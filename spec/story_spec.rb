@@ -11,7 +11,7 @@ describe Story do
 
   context "deals with leading/trailing whitespace" do
     before do
-      story_lines = IO.readlines(File.dirname(__FILE__) + "/whitespacey_story.txt")
+      story_lines = IO.readlines(File.join(File.dirname(__FILE__), "fixtures", "whitespacey_story.txt"))
       @story = Story.new.parse(story_lines)
     end
 
@@ -26,7 +26,7 @@ describe Story do
 
   context "given values for all attributes" do
     before do
-      story_lines = IO.readlines(File.dirname(__FILE__) + "/full_story.txt")
+      story_lines = IO.readlines(File.join(File.dirname(__FILE__), "fixtures", "full_story.txt"))
       @story = Story.new.parse(story_lines)
     end
 
@@ -49,7 +49,7 @@ describe Story do
 
   context "given only a name" do
     before do
-      story_lines = IO.readlines(File.dirname(__FILE__) + "/name_only.txt")
+      story_lines = IO.readlines(File.join(File.dirname(__FILE__), "fixtures", "name_only.txt"))
       @story = Story.new.parse(story_lines)
     end
 
@@ -61,7 +61,7 @@ describe Story do
 
   context "given empty attributes" do
     before do
-      story_lines = IO.readlines(File.dirname(__FILE__) + "/empty_attributes.txt")
+      story_lines = IO.readlines(File.join(File.dirname(__FILE__), "fixtures", "empty_attributes.txt"))
       @story = Story.new.parse(story_lines)
     end
 
@@ -80,7 +80,7 @@ describe Story do
 
   context "given attributes with spaces" do
     before do
-      story_lines = IO.readlines(File.dirname(__FILE__) + "/quoted_attributes.txt")
+      story_lines = IO.readlines(File.join(File.dirname(__FILE__), "fixtures", "quoted_attributes.txt"))
       @story = Story.new.parse(story_lines)
     end
 
