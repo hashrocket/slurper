@@ -67,6 +67,14 @@ Create a stories.slurper file and compose your stories in the slurper story form
 
   labels:
     thing two
+  ==
+  story_type:
+    chore
+  name:
+    Purchase SSL Certificate
+
+  labels:
+    security
 
 Note: the story source file is whitespace-sensitive. Be sure the value for each key is indented with two spaces beneath each key. Also, delineate each story with a double-equals on its own line.
 
