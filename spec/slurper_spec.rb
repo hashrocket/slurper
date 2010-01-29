@@ -1,18 +1,14 @@
 require 'rubygems'
 require 'spec'
-require 'story'
+require 'slurper'
 
-describe Story do
-
-  it ".parse should return a reference to the story" do
-    story = Story.new
-    story.parse("").should == story
-  end
+describe Slurper do
 
   context "deals with leading/trailing whitespace" do
     before do
-      story_lines = IO.readlines(File.join(File.dirname(__FILE__), "fixtures", "whitespacey_story.txt"))
-      @story = Story.new.parse(story_lines)
+      slurper = Slurper.new(File.join(File.dirname(__FILE__), "fixtures", "whitespacey_story.slurper"))
+      slurper.yamlize_story_file
+      @story = slurper.stories.first
     end
 
     it "strips whitespace from the name" do
@@ -26,8 +22,9 @@ describe Story do
 
   context "given values for all attributes" do
     before do
-      story_lines = IO.readlines(File.join(File.dirname(__FILE__), "fixtures", "full_story.txt"))
-      @story = Story.new.parse(story_lines)
+      slurper = Slurper.new(File.join(File.dirname(__FILE__), "fixtures", "full_story.slurper"))
+      slurper.yamlize_story_file
+      @story = slurper.stories.first
     end
 
     it "parses the name correctly" do
@@ -35,7 +32,7 @@ describe Story do
     end
 
     it "parses the description correctly" do
-      @story.description.should == "In order to do something\nAs a role\nI want to click a thingy\n\nAcceptance:\n* do the thing\n* don't forget the other thing\n"
+      @story.description.should == "In order to do something\nAs a role\nI want to click a thingy\n\nAcceptance:\n- do the thing\n- don't forget the other thing\n"
     end
 
     it "parses the label correctly" do
@@ -49,8 +46,9 @@ describe Story do
 
   context "given only a name" do
     before do
-      story_lines = IO.readlines(File.join(File.dirname(__FILE__), "fixtures", "name_only.txt"))
-      @story = Story.new.parse(story_lines)
+      slurper = Slurper.new(File.join(File.dirname(__FILE__), "fixtures", "name_only.slurper"))
+      slurper.yamlize_story_file
+      @story = slurper.stories.first
     end
 
     it "should parse the name correctly" do
@@ -61,27 +59,29 @@ describe Story do
 
   context "given empty attributes" do
     before do
-      story_lines = IO.readlines(File.join(File.dirname(__FILE__), "fixtures", "empty_attributes.txt"))
-      @story = Story.new.parse(story_lines)
+      slurper = Slurper.new(File.join(File.dirname(__FILE__), "fixtures", "empty_attributes.slurper"))
+      slurper.yamlize_story_file
+      @story = slurper.stories.first
     end
 
     it "should not set any name" do
-      @story.attributes.keys.should_not include("name")
+      @story.name.should be_nil
     end
 
     it "should not set any description" do
-      @story.attributes.keys.should_not include("description")
+      @story.description.should be_nil
     end
 
     it "should not set any labels" do
-      @story.attributes.keys.should_not include("labels")
+      @story.labels.should be_nil
     end
   end
 
   context "given attributes with spaces" do
     before do
-      story_lines = IO.readlines(File.join(File.dirname(__FILE__), "fixtures", "quoted_attributes.txt"))
-      @story = Story.new.parse(story_lines)
+      slurper = Slurper.new(File.join(File.dirname(__FILE__), "fixtures", "quoted_attributes.slurper"))
+      slurper.yamlize_story_file
+      @story = slurper.stories.first
     end
 
     it "should set the description correctly" do

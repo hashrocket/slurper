@@ -1,14 +1,15 @@
-type
+==
+story_type:
   feature
-name
+name:
   Profit
-description
+description:
   In order to do something
   As a role
   I want to click a thingy
 
   Acceptance:
-  * do the thing
-  * don't forget the other thing
-labels
+  - do the thing
+  - don't forget the other thing
+labels:
   money,power,fame

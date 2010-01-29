@@ -26,30 +26,4 @@ end.parse!
 
 story_file = ARGV.empty? ? "stories.slurper" : ARGV[0]
 
-story_lines = Array.new
-stories = Array.new
-IO.foreach(story_file) do |line|
-  if line[0,2] == "==" && story_lines.any?
-    stories << Story.new.parse(story_lines)
-    story_lines.clear
-  else
-    story_lines << line
-  end
-end
-
-stories.reverse! unless options[:reverse]
-
-stories.each_with_index do |story, index|
-  begin
-    story.save
-    puts "Added \"#{story.name}\""
-  rescue ActiveResource::ServerError, ActiveResource::ResourceNotFound => e
-    msg = "Slurp failed on story "
-    if story.attributes["name"]
-      msg << story.attributes["name"]
-    else
-      msg << "##{options[:reverse] ? index + 1 : stories.size - index }"
-    end
-    puts msg + ".  Error: #{e}"
-  end
-end
+Slurper.slurp(story_file, options[:reverse])

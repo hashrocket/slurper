@@ -1,6 +1,0 @@
-name
-	Profit
-description
-	In order to do something
-    As a role
-			I want to click a thingy
