@@ -26,16 +26,11 @@ Slurper requires a .slurper.yml file in your home directory. This file contains 
 
   project_id: 1234
   token: 123abc123abc123abc
-  name: Untitled
   requested_by: Jane Stakeholder
-  description: Change me
-  labels: slurper
 
 The project_id tells tracker which project to add your stories to. It can be found on the project settings or the url for the project.
 
 The token can be found on your personal profile page in Pivotal Tracker.
-
-The name, labels and description fields provide slurper with default values for story titles and descriptions if you don't provide them in your stories.slurper file.
 
 The requested_by field should be the name of your project stakeholder exactly as it appears in tracker.
 
