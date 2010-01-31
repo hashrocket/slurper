@@ -20,7 +20,7 @@ Works great with slurper.vim! (http://github.com/alowe/vim-slurper)
 
 == Config
 
-Slurper requires a .slurper.yml file in your home directory. This file contains your Tracker API information and default values for stories.
+Slurper requires a slurper_config.yml file in your working directory. This file contains your Tracker API information and default values for stories.
 
 === Example
 
