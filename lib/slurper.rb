@@ -3,10 +3,10 @@ require 'story'
 class Slurper
   attr_accessor :story_file, :stories
 
-  def self.slurp(story_file, reverse = true)
+  def self.slurp(story_file, reverse)
     slurper = new(story_file)
     slurper.yamlize_story_file
-    slurper.stories.reverse! if reverse
+    slurper.stories.reverse! unless reverse
     slurper.create_stories
   end
 
