@@ -5,7 +5,8 @@ class Slurper
 
   def self.slurp(story_file, reverse)
     slurper = new(story_file)
-    slurper.yamlize_story_file
+    slurper.load_stories
+    slurper.prepare_stories
     slurper.stories.reverse! unless reverse
     slurper.create_stories
   end
@@ -14,14 +15,12 @@ class Slurper
     self.story_file = story_file
   end
 
-  def yamlize_story_file
-    self.stories = YAML.load(
-      IO.read(story_file).
-        gsub(/^/, "    ").
-        gsub(/    ==.*/, "- !ruby/object:Story\n  attributes:").
-        gsub(/    description:$/, "    description: |")
-    )
-    scrub_descriptions
+  def load_stories
+    self.stories = YAML.load(yamlize_story_file)
+  end
+
+  def prepare_stories
+    stories.each { |story| story.prepare }
   end
 
   def create_stories
@@ -44,15 +43,11 @@ class Slurper
 
   protected
 
-  def scrub_descriptions
-    stories.each do |story|
-      if story.respond_to? :description
-        story.description = story.description.gsub("  ", "").gsub(" \n", "\n")
-      end
-      if story.respond_to?(:description) && story.description == ""
-        story.attributes["description"] = nil
-      end
-    end
+  def yamlize_story_file
+    IO.read(story_file).
+      gsub(/^/, "    ").
+      gsub(/    ==.*/, "- !ruby/object:Story\n  attributes:").
+      gsub(/    description:$/, "    description: |")
   end
 
 end

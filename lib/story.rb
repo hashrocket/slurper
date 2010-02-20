@@ -2,15 +2,33 @@ require 'active_resource'
 
 class Story < ActiveResource::Base
 
-  @@defaults = YAML.load_file('slurper_config.yml')
-  self.site = "http://www.pivotaltracker.com/services/v3/projects/#{@@defaults['project_id']}"
-  headers['X-TrackerToken'] = @@defaults.delete("token")
-  attr_accessor :story_lines
+  def self.config
+    @@config ||= YAML.load_file('slurper_config.yml')
+  end
 
-  def initialize(attributes = {})
-    @attributes     = {}
-    @prefix_options = {}
-    load(@@defaults.merge(attributes))
+  self.site = "http://www.pivotaltracker.com/services/v3/projects/#{config['project_id']}"
+  headers['X-TrackerToken'] = config.delete("token")
+
+  def prepare
+    scrub_description
+    default_requested_by
+  end
+
+  protected
+
+  def scrub_description
+    if respond_to?(:description)
+      self.description = description.gsub("  ", "").gsub(" \n", "\n")
+    end
+    if respond_to?(:description) && description == ""
+      self.attributes["description"] = nil
+    end
+  end
+
+  def default_requested_by
+    if (!respond_to?(:requested_by) || requested_by == "") && Story.config["requested_by"]
+      self.attributes["requested_by"] = Story.config["requested_by"]
+    end
   end
 
 end
