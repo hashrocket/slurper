@@ -15,8 +15,9 @@ begin
     gem.email = "info@hashrocket.com"
     gem.homepage = "http://github.com/hashrocket/slurper"
     gem.authors = ["Wes Gibbs", "Adam Lowe", "Stephen Caudill", "Tim Pope"]
-    gem.add_development_dependency "rspec", ">= 1.2.9"
+    gem.add_development_dependency("rspec", ">= 1.2.9")
     gem.files = FileList["{bin,lib}/**/*"]
+    gem.add_dependency("activeresource", ">= 2.3.5")
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
