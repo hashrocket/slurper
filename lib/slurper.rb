@@ -1,6 +1,7 @@
 require 'story'
 
 class Slurper
+
   attr_accessor :story_file, :stories
 
   def self.slurp(story_file, reverse)
@@ -27,9 +28,12 @@ class Slurper
     puts "Preparing to slurp #{stories.size} stories into Tracker..."
     stories.each_with_index do |story, index|
       begin
-        story.save
-        puts "#{index+1}. #{story.name}"
-      rescue ActiveResource::ServerError, ActiveResource::ResourceNotFound => e
+        if story.save
+          puts "#{index+1}. #{story.name}"
+        else
+          puts "Slurp failed. #{story.errors.full_messages}"
+        end
+      rescue ActiveResource::ConnectionError => e
         msg = "Slurp failed on story "
         if story.attributes["name"]
           msg << story.attributes["name"]
