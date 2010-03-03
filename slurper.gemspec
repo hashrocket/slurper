@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{slurper}
-  s.version = "0.4.2"
+  s.version = "0.4.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Wes Gibbs", "Adam Lowe", "Stephen Caudill", "Tim Pope"]
-  s.date = %q{2010-02-22}
+  s.date = %q{2010-03-03}
   s.default_executable = %q{slurp}
   s.description = %q{
       Slurps stories from the given file (stories.slurper by default) and creates
@@ -43,11 +43,14 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
+      s.add_runtime_dependency(%q<activeresource>, [">= 2.3.5"])
     else
       s.add_dependency(%q<rspec>, [">= 1.2.9"])
+      s.add_dependency(%q<activeresource>, [">= 2.3.5"])
     end
   else
     s.add_dependency(%q<rspec>, [">= 1.2.9"])
+    s.add_dependency(%q<activeresource>, [">= 2.3.5"])
   end
 end
 
