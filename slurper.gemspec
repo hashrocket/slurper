@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name = %q{slurper}
   s.version = "0.4.3"
 
-  s.required_rubygems_version = ">= 1.3.6"
+  s.required_rubygems_version = "= 1.3.6"
   s.authors = ["Wes Gibbs", "Adam Lowe", "Stephen Caudill", "Tim Pope"]
   s.date = %q{2010-08-31}
   s.default_executable = %q{slurp}
