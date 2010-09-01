@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
       when you want to capture a number of stories quickly without clicking
       your way through the Tracker UI.
     }
-  s.email = %q{info@hashrocket.com}
+  s.email = %q{dev@hashrocket.com}
   s.executables = ["slurp"]
   s.extra_rdoc_files = [
     "README.rdoc"
