@@ -4,7 +4,7 @@ require 'bundler'
 
 Gem::Specification.new do |s|
   s.name = %q{slurper}
-  s.version = "0.4.3"
+  s.version = "1.0.0"
 
   s.required_rubygems_version = ">= 1.3.6"
   s.authors = ["Wes Gibbs", "Adam Lowe", "Stephen Caudill", "Tim Pope"]
