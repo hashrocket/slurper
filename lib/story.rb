@@ -9,7 +9,8 @@ class Story < ActiveResource::Base
   def self.config
     @@config = yaml
     scheme =  if !!@@config['ssl']
-                self.ssl_options = { :verify_mode => OpenSSL::SSL::VERIFY_PEER }
+                self.ssl_options = {  :verify_mode => OpenSSL::SSL::VERIFY_PEER,
+                                      :ca_file => File.join(File.dirname(__FILE__), "cacert.pem") }
                 "https"
               else
                 "http"

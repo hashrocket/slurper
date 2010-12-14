@@ -32,6 +32,7 @@ describe Story do
 
       Story.site.scheme.should == "https"
       Story.ssl_options[:verify_mode].should == 1
+      File.open(File.expand_path('lib/cacert.pem')).readlines.find_all{ |l| l =~ /^Equifax/ }.count.should == 4
     end
   end
 
