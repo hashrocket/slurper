@@ -25,9 +25,11 @@ describe Story do
     end
 
     it "uses https if set in the config" do
-      Story.stub!(:yaml).and_return(YAML.load_file('slurper_config_https.yml'))
+      Story.stub!(:yaml).and_return({"ssl" => true})
+      # Need these two method calls to set up the class vars correctly
       Story.yaml['ssl'].should be_true
       Story.config['ssl'].should be_true
+
       Story.site.scheme.should == "https"
       Story.ssl_options[:verify_mode].should == 1
     end
