@@ -36,6 +36,8 @@ The requested_by field should be the name of your project stakeholder exactly as
 
   ssl: true
 
+SSL is being verified by peer using the cacert.pem from (cURL.haxx.se/ca/)[http://curl.haxx.se/ca/]
+
 If your tracker project has "Use HTTPS" enabled then you'll want to add the above line to your config file.
 
 == Usage
