@@ -2,11 +2,23 @@ require 'active_resource'
 
 class Story < ActiveResource::Base
 
-  def self.config
-    @@config ||= YAML.load_file('slurper_config.yml')
+  def self.yaml
+    YAML.load_file('slurper_config.yml')
   end
 
-  self.site = "http://www.pivotaltracker.com/services/v3/projects/#{config['project_id']}"
+  def self.config
+    @@config = yaml
+    scheme =  if !!@@config['ssl']
+                self.ssl_options = { :verify_mode => OpenSSL::SSL::VERIFY_PEER }
+                "https"
+              else
+                "http"
+              end
+    self.site = "#{scheme}://www.pivotaltracker.com/services/v3/projects/#{@@config['project_id']}"
+    @@config
+  end
+
+
   headers['X-TrackerToken'] = config.delete("token")
 
   def prepare

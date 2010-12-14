@@ -18,6 +18,19 @@ describe Story do
       story.should_receive(:default_requested_by)
       story.prepare
     end
+
+    it "uses http by default" do
+      Story.site.scheme.should == "http"
+      Story.yaml['ssl'].should be_nil
+    end
+
+    it "uses https if set in the config" do
+      Story.stub!(:yaml).and_return(YAML.load_file('slurper_config_https.yml'))
+      Story.yaml['ssl'].should be_true
+      Story.config['ssl'].should be_true
+      Story.site.scheme.should == "https"
+      Story.ssl_options[:verify_mode].should == 1
+    end
   end
 
   context "requested_by attribute" do
