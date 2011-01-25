@@ -25,14 +25,13 @@ describe Story do
     end
 
     it "uses https if set in the config" do
-      Story.stub!(:yaml).and_return({"ssl" => true})
-      # Need these two method calls to set up the class vars correctly
-      Story.yaml['ssl'].should be_true
+      Story.stub(:yaml => {"ssl" => true})
       Story.config['ssl'].should be_true
-
       Story.site.scheme.should == "https"
       Story.ssl_options[:verify_mode].should == 1
-      File.open(File.expand_path('lib/cacert.pem')).readlines.find_all{ |l| l =~ /^Equifax/ }.count.should == 4
+
+      # Not sure what this next line is testing
+      File.open(File.expand_path('lib/cacert.pem')).readlines.find_all{ |l| l.starts_with?("Equifax") }.count.should == 4
     end
   end
 
