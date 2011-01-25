@@ -1,1 +1,1 @@
-rvm --create rbx-head@slurper
+rvm --create 1.9.2@slurper
