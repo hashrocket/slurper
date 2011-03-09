@@ -23,8 +23,9 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     "bin/slurp",
-     "lib/slurper.rb",
-     "lib/story.rb"
+    "lib/slurper.rb",
+    "lib/story.rb",
+    "lib/cacert.pem"
   ]
   s.homepage = %q{http://github.com/hashrocket/slurper}
   s.rdoc_options = ["--charset=UTF-8"]
@@ -32,7 +33,7 @@ Gem::Specification.new do |s|
   s.summary = %q{takes a formatted story file and puts it on Pivotal Tracker}
   s.test_files = [
     "spec/slurper_spec.rb",
-     "spec/story_spec.rb"
+    "spec/story_spec.rb"
   ]
 
   s.add_bundler_dependencies
