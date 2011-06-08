@@ -2,39 +2,43 @@
 
 require 'bundler'
 
-Gem::Specification.new do |s|
-  s.name = %q{slurper}
-  s.version = "1.1.1"
+Gem::Specification.new do |gem|
+  gem.name = %q{slurper}
+  gem.version = "1.1.2"
 
-  s.required_rubygems_version = ">= 1.3.6"
-  s.authors = ["Wes Gibbs", "Adam Lowe", "Stephen Caudill", "Tim Pope"]
-  s.date = %q{2010-08-31}
-  s.default_executable = %q{slurp}
-  s.description = %q{
-      Slurps stories from the given file (stories.slurper by default) and creates
+  gem.required_rubygems_version = ">= 1.3.6"
+  gem.authors = ["Wes Gibbs", "Adam Lowe", "Stephen Caudill", "Tim Pope"]
+  gem.date = Date.today.to_s
+  gem.default_executable = %q{slurp}
+  gem.description = %q{
+      Slurps stories from the given file (storiegem.slurper by default) and creates
       Pivotal Tracker stories from them. Useful during story carding sessions
       when you want to capture a number of stories quickly without clicking
       your way through the Tracker UI.
     }
-  s.email = %q{dev@hashrocket.com}
-  s.executables = ["slurp"]
-  s.extra_rdoc_files = [
+  gem.email = %q{dev@hashrocket.com}
+  gem.executables = ["slurp"]
+  gem.extra_rdoc_files = [
     "README.rdoc"
   ]
-  s.files = [
+  gem.files = [
     "bin/slurp",
     "lib/slurper.rb",
     "lib/story.rb",
     "lib/cacert.pem"
   ]
-  s.homepage = %q{http://github.com/hashrocket/slurper}
-  s.rdoc_options = ["--charset=UTF-8"]
-  s.require_paths = ["lib"]
-  s.summary = %q{takes a formatted story file and puts it on Pivotal Tracker}
-  s.test_files = [
+  gem.homepage = %q{http://github.com/hashrocket/slurper}
+  gem.rdoc_options = ["--charset=UTF-8"]
+  gem.require_paths = ["lib"]
+  gem.summary = %q{takes a formatted story file and puts it on Pivotal Tracker}
+  gem.test_files = [
     "spec/slurper_spec.rb",
     "spec/story_spec.rb"
   ]
 
-  s.add_bundler_dependencies
+  gem.add_dependency('activeresource', ["3.0.0"])
+  gem.add_development_dependency('rspec', ["1.3.0"])
+  gem.add_development_dependency('ruby-debug19', ["0.11.6"])
+  gem.add_development_dependency('configuration', ["1.2.0"])
+
 end
