@@ -1,4 +1,7 @@
+require 'yaml'
 require 'story'
+YAML::ENGINE.yamler='syck'
+
 
 class Slurper
 
