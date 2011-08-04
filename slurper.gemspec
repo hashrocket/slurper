@@ -4,17 +4,14 @@ require 'bundler'
 
 Gem::Specification.new do |gem|
   gem.name = %q{slurper}
-  gem.version = "1.1.7"
+  gem.version = "1.1.8"
 
   gem.required_rubygems_version = ">= 1.3.6"
   gem.authors = ["Wes Gibbs", "Adam Lowe", "Stephen Caudill", "Tim Pope"]
   gem.date = Date.today.to_s
   gem.default_executable = %q{slurp}
   gem.description = %q{
-      Slurps stories from the given file (storiegem.slurper by default) and creates
-      Pivotal Tracker stories from them. Useful during story carding sessions
-      when you want to capture a number of stories quickly without clicking
-      your way through the Tracker UI.
+      Slurps stories from the given file (stories.slurper by default) and creates Pivotal Tracker stories from them. Useful during story carding sessions when you want to capture a number of stories quickly without clicking your way through the Tracker UI.
     }
   gem.email = %q{dev@hashrocket.com}
   gem.executables = ["slurp"]
