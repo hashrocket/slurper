@@ -4,4 +4,3 @@
 tmp
 pkg
 *.gem
-Gemfile.lock
