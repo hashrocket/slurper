@@ -1,9 +1,10 @@
 require 'active_resource'
+require 'erb'
 
 class Story < ActiveResource::Base
 
   def self.yaml
-    YAML.load_file('slurper_config.yml')
+    YAML.load(ERB.new(IO.read('slurper_config.yml')).result)
   end
 
   def self.config
