@@ -33,6 +33,17 @@ describe Story do
       # Not sure what this next line is testing
       File.open(File.expand_path('lib/cacert.pem')).readlines.find_all{ |l| l.starts_with?("Equifax") }.count.should == 4
     end
+
+    context "erb in config" do
+      before do
+        ENV["ERB_TEST"] = "9876"
+      end
+
+      it "is processed" do
+        Story.config['erb_test'].should == 9876
+      end
+
+    end
   end
 
   context "requested_by attribute" do
