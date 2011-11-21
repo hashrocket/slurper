@@ -1,4 +1,6 @@
 require 'yaml'
+require 'logger'
+require 'active_resource'
 require 'story'
 YAML::ENGINE.yamler='syck' if RUBY_VERSION > '1.9'
 
@@ -7,7 +9,14 @@ class Slurper
 
   attr_accessor :story_file, :stories
 
-  def self.slurp(story_file, reverse)
+  def self.slurp(story_file, reverse, debug=false)
+    if debug
+      ActiveResource::Base.logger = Logger.new(STDOUT)
+      ActiveResource::Base.logger.level = Logger::DEBUG
+    else
+      ActiveResource::Base.logger = nil
+    end
+
     slurper = new(story_file)
     slurper.load_stories
     slurper.prepare_stories

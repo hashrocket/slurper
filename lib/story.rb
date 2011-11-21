@@ -1,5 +1,3 @@
-require 'active_resource'
-
 class Story < ActiveResource::Base
 
   def self.yaml
