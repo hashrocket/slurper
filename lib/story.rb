@@ -25,6 +25,20 @@ class Story < ActiveResource::Base
     default_requested_by
   end
 
+  def to_xml(options={})
+    options[:except] ||= []
+    options[:except] << :tasks
+    super(options)
+  end
+
+  def extract_tasks
+    if respond_to?(:tasks)
+      tasks.collect {|task| Task.new(:description => task)}
+    else
+      []
+    end
+  end
+
   protected
 
   def scrub_description
