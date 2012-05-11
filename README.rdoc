@@ -1,18 +1,8 @@
-= slurper
+= slurper gem
 
 Slurper allows you to quickly compose your stories in a text file and import them into Pivotal Tracker.
 
 Works great with slurper.vim! (http://github.com/adamlowe/vim-slurper)
-
-== Note on Patches/Pull Requests
-
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request.
 
 == Setup
 
@@ -65,7 +55,7 @@ Or even
     Set up and configure staging environment for approval of stories
 
   labels:
-    
+    staging
   ==
   story_type:
     feature
@@ -89,7 +79,7 @@ Or even
     This release marks a lot of awesome functionality
 
   labels:
-    
+    campaign managers
   ==
   story_type:
     bug
@@ -99,10 +89,20 @@ Or even
     When I do something, another thing is supposed to happen but I see an error screen instead.
 
   labels:
-    
+    campaign managers
 
 Note: the story source file is whitespace-sensitive. Be sure the value for each key phrase is indented with two spaces beneath each key phrase. Also, start each story with a double-equals on its own line.
 
 Your best bet is to leverage slurper.vim and benefit from its auto-indenting goodness.
+
+== Note on Patches/Pull Requests
+
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
+  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request.
 
 Credit - Wes Gibbs (http://wgibbs.github.com) thought of and wrote slurper as a ruby script. It was later packaged and released as a gem by his fellow Rocketeers after using it and finding it extremely handy.
