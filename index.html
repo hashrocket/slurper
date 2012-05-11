@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>slurper by hashrocket</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>slurper</h1>
+        <p>Gem for slurping plain text stories into Pivotal Tracker</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/hashrocket/slurper" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/hashrocket/slurper/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/hashrocket/slurper/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>Description</h1>
+
+<p>Slurper allows you to quickly compose your stories in a text file and import them into Pivotal Tracker.</p>
+
+<p>Works great with slurper.vim! (<a href="http://github.com/adamlowe/vim-slurper">http://github.com/adamlowe/vim-slurper</a>)</p>
+
+<h1>Patches/Pull Requests</h1>
+
+<ul>
+<li>Fork the project.</li>
+<li>Make your feature addition or bug fix.</li>
+<li>Add tests for it. This is important so I don't break it in a
+future version unintentionally.</li>
+<li>Commit, do not mess with rakefile, version, or history.
+(if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)</li>
+<li>Send me a pull request.</li>
+</ul><h1>Setup</h1>
+
+<pre><code>$gem install slurper
+</code></pre>
+
+<h1>Config</h1>
+
+<p>Slurper requires a slurper_config.yml file in your working directory. This file contains your Tracker API and story requestor information.</p>
+
+<p>Example</p>
+
+<pre><code>project_id: 1234
+token: 123abc123abc123abc
+requested_by: Jane Stakeholder
+ssl: true
+</code></pre>
+
+<p>The project_id tells tracker which project to add your stories to. It can be found on the project settings or the url for the project.</p>
+
+<p>The token can be found on your personal profile page in Pivotal Tracker.</p>
+
+<p>The requested_by field should be the name of your project stakeholder exactly as it appears in tracker.</p>
+
+<p>The ssl field should be set to true if you've enabled "Use HTTPS" in Pivotal Tracker.
+SSL is being verified by peer using the cacert.pem from (<a href="http://curl.haxx.se/ca">http://curl.haxx.se/ca</a>)</p>
+
+<h1>Usage</h1>
+
+<p>Create a stories.slurper file and compose your stories in the slurper story format. In your working directory use the slurp command to import your stories from the stories.slurper file into Pivotal Tracker. Slurper looks for a stories.slurper file in your current directory by default, however, you can provide an alternate story source file if necessary.</p>
+
+<p>Default</p>
+
+<pre><code>$slurp ~/stories.slurper
+</code></pre>
+
+<p>Also valid</p>
+
+<pre><code>$slurp ~/special_stories.slurper
+</code></pre>
+
+<p>Or even</p>
+
+<pre><code>$slurp ~/mystories.txt
+</code></pre>
+
+<p>Example stories.slurper</p>
+
+<pre><code>==
+story_type:
+  chore
+name:
+  Set Up Staging Environment
+description:
+  Set up and configure staging environment for approval of stories
+
+labels:
+  staging
+==
+story_type:
+  feature
+name:
+  Campaign Manager Does Something
+description:
+  In order to get some value
+  As a campaign manager
+  I want to do something
+
+  - can do something
+
+labels:
+  campaign managers
+==
+story_type:
+  release
+name:
+  Big Release
+description:
+  This release marks a lot of awesome functionality
+
+labels:
+  campaign managers
+==
+story_type:
+  bug
+name:
+  I did something and nothing happened
+description:
+  When I do something, another thing is supposed to happen but I see an error screen instead.
+
+labels:
+  campaign managers
+</code></pre>
+
+<p>Note: the story source file is whitespace-sensitive. Be sure the value for each key phrase is indented with two spaces beneath each key phrase. Also, start each story with a double-equals on its own line.</p>
+
+<p>Your best bet is to leverage slurper.vim and benefit from its auto-indenting goodness.</p>
+
+<p>Credit - Wes Gibbs (<a href="http://wgibbs.github.com">http://wgibbs.github.com</a>) thought of and wrote slurper as a ruby script. It was later packaged and released as a gem by his fellow Rocketeers after using it and finding it extremely handy.</p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/hashrocket">hashrocket</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+    
+  </body>
+</html>
