@@ -22,8 +22,11 @@ OptionParser.new do |opts|
   opts.on("-r", "--reverse", "Reverse story creation order") do |v|
     options[:reverse] = v
   end
+  opts.on("-d", "--debug", "Display detailed network request info") do |d|
+    options[:debug] = d
+  end
 end.parse!
 
 story_file = ARGV.empty? ? "stories.slurper" : ARGV[0]
 
-Slurper.slurp(story_file, options[:reverse])
+Slurper.slurp(story_file, options[:reverse], options[:debug])

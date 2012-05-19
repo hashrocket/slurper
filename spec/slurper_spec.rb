@@ -65,4 +65,16 @@ describe Slurper do
     end
   end
 
+  context "with tasks" do
+    before do
+      slurper = Slurper.new(File.join(File.dirname(__FILE__), "fixtures", "story_with_tasks.slurper"))
+      slurper.load_stories
+      @story = slurper.stories.first
+    end
+
+    it "parses the tasks correctly" do
+      @story.tasks.should == ["do the thing", "don't forget the other thing"]
+    end
+  end
+
 end

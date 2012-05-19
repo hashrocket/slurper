@@ -1,5 +1,3 @@
-require 'active_resource'
-
 class Story < ActiveResource::Base
 
   def self.yaml
@@ -25,6 +23,20 @@ class Story < ActiveResource::Base
   def prepare
     scrub_description
     default_requested_by
+  end
+
+  def to_xml(options={})
+    options[:except] ||= []
+    options[:except] << :tasks
+    super(options)
+  end
+
+  def extract_tasks
+    if respond_to?(:tasks)
+      tasks.collect {|task| Task.new(:description => task)}
+    else
+      []
+    end
   end
 
   protected

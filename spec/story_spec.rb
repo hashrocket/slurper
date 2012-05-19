@@ -4,6 +4,21 @@ require 'slurper'
 
 describe Story do
 
+  it "uses http by default" do
+    Story.site.scheme.should == "http"
+    Story.yaml['ssl'].should be_nil
+  end
+
+  it "uses https if set in the config" do
+    Story.stub(:yaml => {"ssl" => true})
+    Story.config['ssl'].should be_true
+    Story.site.scheme.should == "https"
+    Story.ssl_options[:verify_mode].should == 1
+
+    # Not sure what this next line is testing
+    File.open(File.expand_path('lib/cacert.pem')).readlines.find_all{ |l| l.starts_with?("Equifax") }.count.should == 4
+  end
+
   context "#prepare" do
     it "scrubs the description" do
       story = Story.new
@@ -18,20 +33,29 @@ describe Story do
       story.should_receive(:default_requested_by)
       story.prepare
     end
+  end
 
-    it "uses http by default" do
-      Story.site.scheme.should == "http"
-      Story.yaml['ssl'].should be_nil
+  context "#to_xml" do
+    it "excludes the tasks attribute" do
+      story = Story.new(
+        :story_type => "feature",
+        :name => "Profit",
+        :tasks => ["build something epic", "charge a lot for it"])
+      story.to_xml.should == "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<story>\n  <story-type>feature</story-type>\n  <name>Profit</name>\n</story>\n"
+    end
+  end
+
+  context "#extract_tasks" do
+    it "returns an empty array for a story with no tasks" do
+      story = Story.new
+      story.extract_tasks.should == []
     end
 
-    it "uses https if set in the config" do
-      Story.stub(:yaml => {"ssl" => true})
-      Story.config['ssl'].should be_true
-      Story.site.scheme.should == "https"
-      Story.ssl_options[:verify_mode].should == 1
-
-      # Not sure what this next line is testing
-      File.open(File.expand_path('lib/cacert.pem')).readlines.find_all{ |l| l.starts_with?("Equifax") }.count.should == 4
+    it "returns an array of Tasks with the appropriate descriptions for a story with tasks" do
+      story = Story.new(:tasks => ["build something epic"])
+      task = story.extract_tasks[0]
+      task.should be_an_instance_of(Task)
+      task.description.should == "build something epic"
     end
   end
 
