@@ -47,6 +47,7 @@ Or even
 === Example stories.slurper
 
   ==
+
   story_type:
     chore
   name:
@@ -56,7 +57,9 @@ Or even
 
   labels:
     staging
+
   ==
+
   story_type:
     feature
   name:
@@ -70,7 +73,9 @@ Or even
 
   labels:
     campaign managers
+
   ==
+
   story_type:
     release
   name:
@@ -80,7 +85,9 @@ Or even
 
   labels:
     campaign managers
+
   ==
+
   story_type:
     bug
   name:
