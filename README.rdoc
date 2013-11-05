@@ -47,7 +47,6 @@ Or even
 === Example stories.slurper
 
   ==
-
   story_type:
     chore
   name:
@@ -57,9 +56,7 @@ Or even
 
   labels:
     staging
-
   ==
-
   story_type:
     feature
   name:
@@ -73,9 +70,7 @@ Or even
 
   labels:
     campaign managers
-
   ==
-
   story_type:
     release
   name:
@@ -85,9 +80,7 @@ Or even
 
   labels:
     campaign managers
-
   ==
-
   story_type:
     bug
   name:
@@ -101,6 +94,27 @@ Or even
 Note: the story source file is whitespace-sensitive. Be sure the value for each key phrase is indented with two spaces beneath each key phrase. Also, start each story with a double-equals on its own line.
 
 Your best bet is to leverage slurper.vim and benefit from its auto-indenting goodness.
+
+=== Example advanced_stories.slurper
+
+There are some advanced techniques for formatting your stories beyond the simple type, name, description and label fields. See below for some examples.
+
+  ==
+  story_type:
+    feature
+  name:
+    Make the cart accept coupons on checkout
+  description:
+    When I get to the checkout phase, I want the ability to add an optional coupon code. Use TESTCOUPON to test with.
+  labels:
+    cart,coupon system,checkout
+  estimate:
+    3
+  owned_by:
+    Joe Developer
+
+Note: Any field that is supported by the Pivotal Tracker API should work within reason (i.e file uploads won't work). To get an idea of the fields avai
+
 
 == Note on Patches/Pull Requests
 
