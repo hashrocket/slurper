@@ -113,8 +113,7 @@ There are some advanced techniques for formatting your stories beyond the simple
   owned_by:
     Joe Developer
 
-Note: Any field that is supported by the Pivotal Tracker API should work within reason (i.e file uploads won't work). To get an idea of the fields avai
-
+Note: Any field that is supported by the Pivotal Tracker API should work within reason (i.e file uploads won't work). To get an idea of the fields available see this page (https://www.pivotaltracker.com/help/faq#canstoriesbeimportedfromcsv)
 
 == Note on Patches/Pull Requests
 
