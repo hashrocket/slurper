@@ -1,0 +1,13 @@
+==
+story_type:
+  feature
+name:
+  Make the cart accept coupons on checkout
+description:
+  When I get to the checkout phase, I want the ability to add an optional coupon code. Use TESTCOUPON to test with.
+labels:
+  cart,coupon system,checkout
+estimate:
+  3
+owned_by:
+  Joe Developer
