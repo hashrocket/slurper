@@ -65,4 +65,19 @@ describe Slurper do
     end
   end
 
+  context "given advanced attributes" do
+    before do
+      slurper = Slurper.new(File.join(File.dirname(__FILE__), "fixtures", "advanced_stories.slurper"))
+      slurper.load_stories
+      @story = slurper.stories.first
+    end
+
+    it "should have an estimate" do
+      @story.estimate.should == 3
+    end
+
+    it "should have an owner" do
+      @story.owned_by.should == 'Joe Developer'
+    end
+  end
 end

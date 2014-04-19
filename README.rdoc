@@ -95,6 +95,26 @@ Note: the story source file is whitespace-sensitive. Be sure the value for each 
 
 Your best bet is to leverage slurper.vim and benefit from its auto-indenting goodness.
 
+=== Example advanced_stories.slurper
+
+There are some advanced techniques for formatting your stories beyond the simple type, name, description and label fields. See below for some examples.
+
+  ==
+  story_type:
+    feature
+  name:
+    Make the cart accept coupons on checkout
+  description:
+    When I get to the checkout phase, I want the ability to add an optional coupon code. Use TESTCOUPON to test with.
+  labels:
+    cart,coupon system,checkout
+  estimate:
+    3
+  owned_by:
+    Joe Developer
+
+Note: Any field that is supported by the Pivotal Tracker API should work within reason (i.e file uploads won't work). To get an idea of the fields available see this page (https://www.pivotaltracker.com/help/faq#canstoriesbeimportedfromcsv)
+
 == Note on Patches/Pull Requests
 
 * Fork the project.
