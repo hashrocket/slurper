@@ -35,7 +35,6 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency("activeresource", ["~> 3.0.9"])
   gem.add_development_dependency("rspec", ["~> 1.3.0"])
-  gem.add_development_dependency("ruby-debug19", ["~> 0.11.6"])
   gem.add_development_dependency("configuration", ["~> 1.2.0"])
 
 end

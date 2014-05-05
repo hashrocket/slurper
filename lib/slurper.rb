@@ -1,7 +1,5 @@
 require 'yaml'
 require 'story'
-YAML::ENGINE.yamler='syck' if RUBY_VERSION > '1.9'
-
 
 class Slurper
 
