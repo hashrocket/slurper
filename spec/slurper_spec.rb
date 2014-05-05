@@ -1,6 +1,4 @@
-require 'rubygems'
-require 'spec'
-require 'slurper'
+require 'spec_helper'
 
 describe Slurper do
 

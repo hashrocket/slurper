@@ -1,20 +1,18 @@
-require 'rubygems'
-require 'spec'
-require 'slurper'
+require 'spec_helper'
 
 describe Story do
 
   context "#prepare" do
     it "scrubs the description" do
       story = Story.new
-      story.stub!(:default_requested_by)
+      story.stub(:default_requested_by)
       story.should_receive(:scrub_description)
       story.prepare
     end
 
     it "scrubs the defaults the requested_by attribute" do
       story = Story.new
-      story.stub!(:scrub_description)
+      story.stub(:scrub_description)
       story.should_receive(:default_requested_by)
       story.prepare
     end
@@ -37,21 +35,21 @@ describe Story do
 
   context "requested_by attribute" do
     it "uses the default if not given one" do
-      Story.stub!(:config).and_return({"requested_by" => "Mr. Client"})
+      Story.stub(:config).and_return({"requested_by" => "Mr. Client"})
       story = Story.new
       story.send(:default_requested_by)
       story.requested_by.should == "Mr. Client"
     end
 
     it "uses the default if given a blank requested_by" do
-      Story.stub!(:config).and_return({"requested_by" => "Mr. Client"})
+      Story.stub(:config).and_return({"requested_by" => "Mr. Client"})
       story = Story.new(:requested_by => "")
       story.send(:default_requested_by)
       story.requested_by.should == "Mr. Client"
     end
 
     it "uses the name given in the story file if there is one" do
-      Story.stub!(:config).and_return({"requested_by" => "Mr. Client"})
+      Story.stub(:config).and_return({"requested_by" => "Mr. Client"})
       story = Story.new(:requested_by => "Mr. Stakeholder")
       story.send(:default_requested_by)
       story.requested_by.should == "Mr. Stakeholder"
@@ -83,9 +81,9 @@ describe Story do
 
     it "when it is full of whitespace" do
       desc = <<-STRING
-        In order to do something   
-        As a role     
-        I want to click a thingy  
+        In order to do something
+        As a role
+        I want to click a thingy
       STRING
       story = Story.new(:description => desc)
       story.send(:scrub_description)
