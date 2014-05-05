@@ -12,13 +12,9 @@ module Slurper
     slurper.create_stories
   end
 
-  class Main
+  class Main < Struct.new(:story_file)
 
-    attr_accessor :story_file, :stories
-
-    def initialize(story_file)
-      self.story_file = story_file
-    end
+    attr_accessor :stories
 
     def load_stories
       self.stories = YAML.load(yamlize_story_file)
