@@ -19,12 +19,11 @@ describe Story do
 
     it "uses http by default" do
       Story.site.scheme.should == "http"
-      Story.yaml['ssl'].should be_nil
     end
 
     it "uses https if set in the config" do
-      Story.stub(:yaml => {"ssl" => true})
-      Story.config['ssl'].should be_true
+      Slurper::Config.stub(ssl: true)
+      Story.config
       Story.site.scheme.should == "https"
       Story.ssl_options[:verify_mode].should == 1
 
@@ -35,14 +34,14 @@ describe Story do
 
   context "requested_by attribute" do
     it "uses the default if not given one" do
-      Story.stub(:config).and_return({"requested_by" => "Mr. Client"})
+      Slurper::Config.stub(requested_by: "Mr. Client")
       story = Story.new
       story.send(:default_requested_by)
       story.requested_by.should == "Mr. Client"
     end
 
     it "uses the default if given a blank requested_by" do
-      Story.stub(:config).and_return({"requested_by" => "Mr. Client"})
+      Slurper::Config.stub(requested_by: "Mr. Client")
       story = Story.new(:requested_by => "")
       story.send(:default_requested_by)
       story.requested_by.should == "Mr. Client"
