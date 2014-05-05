@@ -5,7 +5,6 @@ describe Slurper do
   context "deals with leading/trailing whitespace" do
     before do
       slurper = Slurper::Main.new(File.join(File.dirname(__FILE__), "fixtures", "whitespacey_story.slurper"))
-      slurper.load_stories
       @story = slurper.stories.first
     end
 
@@ -17,7 +16,6 @@ describe Slurper do
   context "given values for all attributes" do
     before do
       slurper = Slurper::Main.new(File.join(File.dirname(__FILE__), "fixtures", "full_story.slurper"))
-      slurper.load_stories
       @story = slurper.stories.first
     end
 
@@ -37,7 +35,6 @@ describe Slurper do
   context "given only a name" do
     before do
       slurper = Slurper::Main.new(File.join(File.dirname(__FILE__), "fixtures", "name_only.slurper"))
-      slurper.load_stories
       @story = slurper.stories.first
     end
 
@@ -50,7 +47,6 @@ describe Slurper do
   context "given empty attributes" do
     before do
       slurper = Slurper::Main.new(File.join(File.dirname(__FILE__), "fixtures", "empty_attributes.slurper"))
-      slurper.load_stories
       @story = slurper.stories.first
     end
 
@@ -66,7 +62,6 @@ describe Slurper do
   context "given advanced attributes" do
     before do
       slurper = Slurper::Main.new(File.join(File.dirname(__FILE__), "fixtures", "advanced_stories.slurper"))
-      slurper.load_stories
       @story = slurper.stories.first
     end
 

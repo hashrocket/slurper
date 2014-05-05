@@ -6,7 +6,6 @@ module Slurper
 
   def self.slurp(story_file, reverse)
     slurper = Main.new(story_file)
-    slurper.load_stories
     slurper.prepare_stories
     slurper.stories.reverse! unless reverse
     slurper.create_stories
@@ -14,10 +13,8 @@ module Slurper
 
   class Main < Struct.new(:story_file)
 
-    attr_accessor :stories
-
-    def load_stories
-      self.stories = YAML.load(yamlize_story_file)
+    def stories
+      @stories ||= YAML.load(yamlize_story_file)
     end
 
     def prepare_stories
