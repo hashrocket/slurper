@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
   gem.name = "slurper"
-  gem.version = "1.1.8"
+  gem.version = "2.0.0"
   gem.license = "MIT"
 
   gem.authors = ["Hashrocket"]

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    slurper (1.1.8)
+    slurper (2.0.0)
       activesupport (~> 4.1)
       typhoeus (~> 0.6)
 
