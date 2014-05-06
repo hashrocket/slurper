@@ -17,5 +17,6 @@ Gem::Specification.new do |gem|
   gem.require_path = "lib"
   gem.summary = "takes a formatted story file and puts it on Pivotal Tracker"
 
-  gem.add_dependency("activeresource", ["~> 3.0.9"])
+  gem.add_dependency("activesupport", ["~> 4.1"])
+  gem.add_dependency("typhoeus", ["~> 0.6"])
 end

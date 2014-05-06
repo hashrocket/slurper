@@ -17,16 +17,12 @@ Slurper requires a slurper_config.yml file in your working directory. This file 
   project_id: 1234
   token: 123abc123abc123abc
   requested_by: Jane Stakeholder
-  ssl: true
 
 The project_id tells tracker which project to add your stories to. It can be found on the project settings or the url for the project.
 
 The token can be found on your personal profile page in Pivotal Tracker.
 
 The requested_by field should be the name of your project stakeholder exactly as it appears in tracker.
-
-The ssl field should be set to true if you've enabled "Use HTTPS" in Pivotal Tracker.
-SSL is being verified by peer using the cacert.pem from (http://curl.haxx.se/ca)
 
 == Usage
 
@@ -35,11 +31,11 @@ Create a stories.slurper file and compose your stories in the slurper story form
 Default
 
   $slurp ~/stories.slurper
-  
+
 Also valid
 
   $slurp ~/special_stories.slurper
-  
+
 Or even
 
   $slurp ~/mystories.txt
@@ -110,7 +106,7 @@ There are some advanced techniques for formatting your stories beyond the simple
     cart,coupon system,checkout
   estimate:
     3
-  owned_by:
+  requested_by:
     Joe Developer
 
 Note: Any field that is supported by the Pivotal Tracker API should work within reason (i.e file uploads won't work). To get an idea of the fields available see this page (https://www.pivotaltracker.com/help/faq#canstoriesbeimportedfromcsv)

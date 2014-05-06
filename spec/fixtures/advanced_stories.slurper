@@ -9,5 +9,5 @@ labels:
   cart,coupon system,checkout
 estimate:
   3
-owned_by:
+requested_by:
   Joe Developer
