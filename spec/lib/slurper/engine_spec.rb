@@ -53,4 +53,9 @@ describe Slurper::Engine do
     its(:estimate) { should == 3 }
     its(:requested_by) { should == 'Joe Developer' }
   end
+
+  context "given a story with an array of labels" do
+    let(:filename) { 'array_of_labels.slurper' }
+    its(:labels) { should == [{name:'verse'},{name:'chorus'},{name:'hook'}] }
+  end
 end
