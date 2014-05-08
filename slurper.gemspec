@@ -5,7 +5,7 @@ Gem::Specification.new do |gem|
   gem.version = "2.0.0"
   gem.license = "MIT"
 
-  gem.authors = ["Hashrocket"]
+  gem.authors = ["Adam Lowe", "Paul Elliott", "Taylor Mock"]
   gem.default_executable = 'slurp'
   gem.description = "Slurps stories from the given file (stories.slurper by default) and creates Pivotal Tracker stories from them. Useful during story carding sessions when you want to capture a number of stories quickly without clicking your way through the Tracker UI."
   gem.email = "dev@hashrocket.com"
