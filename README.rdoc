@@ -109,7 +109,7 @@ There are some advanced techniques for formatting your stories beyond the simple
   requested_by:
     Joe Developer
 
-Note: Any field that is supported by the Pivotal Tracker API should work within reason (i.e file uploads won't work). To get an idea of the fields available see this page (https://www.pivotaltracker.com/help/faq#canstoriesbeimportedfromcsv)
+Note: Any field that is supported by the Pivotal Tracker API should work within reason (i.e file uploads won't work). To get an idea of the fields available see this page (https://www.pivotaltracker.com/help/articles/csv_import_export/#example-csv-data)
 
 == Note on Patches/Pull Requests
 
