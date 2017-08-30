@@ -1,24 +1,30 @@
-= slurper gem
+# slurper
 
 Slurper allows you to quickly compose your stories in a text file and import
 them into Pivotal Tracker.
 
 Works great with [slurper.vim](http://github.com/adamlowe/vim-slurper)!
 
-== Install
+## Install
 
-  $ gem install slurper
+```
+$ gem install slurper
+```
 
-== Config
+## Config
 
 Slurper requires a `slurper_config.yml `file in your working directory. This file
 contains your Tracker API and story requestor information.
 
-=== Example
+### Example
 
-  project_id: 1234
-  token: 123abc123abc123abc
-  requested_by: Jane Stakeholder
+```yml
+# slurper_config.yml
+
+project_id: 1234
+token: 123abc123abc123abc
+requested_by: Jane Stakeholder
+```
 
 The `project_id` tells tracker which project to add your stories to. It can be
 found on the project settings or the URL for the project.
@@ -28,7 +34,7 @@ The `token` can be found on your personal profile page in Pivotal Tracker.
 The `requested_by` field should be the name of your project stakeholder exactly
 as it appears in tracker.
 
-== Usage
+## Usage
 
 Create a `stories.slurper` file and compose your stories in the Slurper story
 format. In your working directory use the slurp command to import your stories
@@ -38,62 +44,72 @@ provide an alternate story source file if necessary.
 
 Default
 
-  $ slurp ~/stories.slurper
+```
+$ slurp ~/stories.slurper
+```
 
 Also valid
 
-  $ slurp ~/special_stories.slurper
+```
+$ slurp ~/special_stories.slurper
+```
 
 Or even
 
-  $ slurp ~/mystories.txt
+```
+$ slurp ~/mystories.txt
+```
 
-=== Example `stories.slurper`
+### Example Stories
 
-  ==
-  story_type:
-    chore
-  name:
-    Set Up Staging Environment
-  description:
-    Set up and configure staging environment for approval of stories
+```
+/* stories.slurper */
 
-  labels:
-    staging
-  ==
-  story_type:
-    feature
-  name:
-    Campaign Manager Does Something
-  description:
-    In order to get some value
-    As a campaign manager
-    I want to do something
+==
+story_type:
+  chore
+name:
+  Set Up Staging Environment
+description:
+  Set up and configure staging environment for approval of stories
 
-    - can do something
+labels:
+  staging
+==
+story_type:
+  feature
+name:
+  Campaign Manager Does Something
+description:
+  In order to get some value
+  As a campaign manager
+  I want to do something
 
-  labels:
-    campaign managers
-  ==
-  story_type:
-    release
-  name:
-    Big Release
-  description:
-    This release marks a lot of awesome functionality
+  - can do something
 
-  labels:
-    campaign managers
-  ==
-  story_type:
-    bug
-  name:
-    I did something and nothing happened
-  description:
-    When I do something, another thing is supposed to happen but I see an error screen instead.
+labels:
+  campaign managers
+==
+story_type:
+  release
+name:
+  Big Release
+description:
+  This release marks a lot of awesome functionality
 
-  labels:
-    campaign managers
+labels:
+  campaign managers
+==
+story_type:
+  bug
+name:
+  I did something and nothing happened
+description:
+  When I do something, another thing is supposed to happen but I see an error screen instead.
+
+labels:
+  campaign managers
+```
 
 Note: the story source file is whitespace-sensitive. Be sure the value for each
 key phrase is indented with two spaces beneath each key phrase. Also, start
@@ -103,31 +119,35 @@ Your best bet is to leverage
 [slurper.vim](http://github.com/adamlowe/vim-slurper) and benefit from its
 auto-indenting goodness.
 
-=== Example `advanced_stories.slurper`
+### Example Stories (Advanced)
 
 There are some advanced techniques for formatting your stories beyond the
 simple type, name, description and label fields. See below for some examples.
 
-  ==
-  story_type:
-    feature
-  name:
-    Make the cart accept coupons on checkout
-  description:
-    When I get to the checkout phase, I want the ability to add an optional coupon code. Use TESTCOUPON to test with.
-  labels:
-    cart,coupon system,checkout
-  estimate:
-    3
-  requested_by:
-    Joe Developer
+```
+/* advanced.slurper */
+
+==
+story_type:
+  feature
+name:
+  Make the cart accept coupons on checkout
+description:
+  When I get to the checkout phase, I want the ability to add an optional coupon code. Use TESTCOUPON to test with.
+labels:
+  cart,coupon system,checkout
+estimate:
+  3
+requested_by:
+  Joe Developer
+```
 
 Note: Any field that is supported by the Pivotal Tracker API should work within
 reason (i.e. file uploads won't work). To get an idea of the fields available
 see this page
 (https://www.pivotaltracker.com/help/articles/csv_import_export/#example-csv-data)
 
-== Note on Patches/Pull Requests
+## Note on Patches/Pull Requests
 
 * Fork the project.
 * Make your feature addition or bug fix.
