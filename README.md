@@ -144,8 +144,9 @@ requested_by:
 
 Note: Any field that is supported by the Pivotal Tracker API should work within
 reason (i.e. file uploads won't work). To get an idea of the fields available
-see this page
-(https://www.pivotaltracker.com/help/articles/csv_import_export/#example-csv-data)
+see Pivotal Tracker's [Example CSV
+data](https://www.pivotaltracker.com/help/articles/csv_import_export/#example-csv-data)
+documentation.
 
 ## Development
 
