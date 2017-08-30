@@ -147,15 +147,19 @@ reason (i.e. file uploads won't work). To get an idea of the fields available
 see this page
 (https://www.pivotaltracker.com/help/articles/csv_import_export/#example-csv-data)
 
-## Note on Patches/Pull Requests
+## Development
 
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with Rakefile, version, or history.
-  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request.
+1. [Fork](https://help.github.com/articles/fork-a-repo/) it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
+
+Please add tests at the same time as new features, and verify they all pass with:
+
+```
+$ rake
+```
 
 Credit - Wes Gibbs (https://github.com/wesgibbs) thought of and wrote Slurper as a
 Ruby script. It was later packaged and released as a gem by his fellow
