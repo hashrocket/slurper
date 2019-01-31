@@ -6,51 +6,51 @@ describe Slurper::Engine do
 
   context "deals with leading/trailing whitespace" do
     let(:filename) { 'whitespacey_story.slurper' }
-    its(:name) { should == 'Profit' }
-    its(:description) { should == "In order to do something\nAs a role\nI want to click a thingy" }
-    its(:story_type) { should be_nil }
-    its(:labels) { should == [] }
-    its(:estimate) { should be_nil }
-    its(:requested_by) { should == 'Johnny Hashrocket' }
+    it{ expect(subject.name).to eq('Profit') }
+    it{ expect(subject.description).to eq("In order to do something\nAs a role\nI want to click a thingy") }
+    it{ expect(subject.story_type).to be_nil }
+    it{ expect(subject.labels).to eq [] }
+    it{ expect(subject.estimate).to be_nil }
+    it{ expect(subject.requested_by).to eq 'Johnny Hashrocket' }
   end
 
   context "given values for all attributes" do
     let(:filename) { 'full_story.slurper' }
-    its(:name) { should == 'Profit' }
-    its(:description) { should == "In order to do something\nAs a role\nI want to click a thingy\n\nAcceptance:\n- do the thing\n- don't forget the other thing" }
-    its(:story_type) { should == 'feature' }
-    its(:labels) { should == [{name:'money'},{name:'power'},{name:'fame'}] }
-    its(:estimate) { should be_nil }
-    its(:requested_by) { should == 'Johnny Hashrocket' }
+    it { expect(subject.name).to eq 'Profit' }
+    it { expect(subject.description).to eq "In order to do something\nAs a role\nI want to click a thingy\n\nAcceptance:\n- do the thing\n- don't forget the other thing" }
+    it { expect(subject.story_type).to eq 'feature' }
+    it { expect(subject.labels).to eq [{name:'money'},{name:'power'},{name:'fame'}] }
+    it { expect(subject.estimate).to be_nil }
+    it { expect(subject.requested_by).to eq 'Johnny Hashrocket' }
   end
 
   context "given only a name" do
     let(:filename) { 'name_only.slurper' }
-    its(:name) { should == 'Profit' }
-    its(:description) { should be_blank }
-    its(:story_type) { should be_nil }
-    its(:labels) { should == [] }
-    its(:estimate) { should be_nil }
-    its(:requested_by) { should == 'Johnny Hashrocket' }
+    it { expect(subject.name).to eq 'Profit' }
+    it { expect(subject.description).to be_blank }
+    it { expect(subject.story_type).to be_nil }
+    it { expect(subject.labels).to eq [] }
+    it { expect(subject.estimate).to be_nil }
+    it { expect(subject.requested_by).to eq 'Johnny Hashrocket' }
   end
 
   context "given empty attributes" do
     let(:filename) { 'empty_attributes.slurper' }
-    its(:name) { should be_blank }
-    its(:description) { should be_blank }
-    its(:story_type) { should be_nil }
-    its(:labels) { should == [] }
-    its(:estimate) { should be_nil }
-    its(:requested_by) { should == 'Johnny Hashrocket' }
+    it { expect(subject.name).to be_blank }
+    it { expect(subject.description).to be_blank }
+    it { expect(subject.story_type).to be_nil }
+    it { expect(subject.labels).to eq [] }
+    it { expect(subject.estimate).to be_nil }
+    it { expect(subject.requested_by).to eq 'Johnny Hashrocket' }
   end
 
   context "given advanced attributes" do
     let(:filename) { 'advanced_stories.slurper' }
-    its(:name) { should == "Make the cart accept coupons on checkout" }
-    its(:description) { should == "When I get to the checkout phase, I want the ability to add an optional coupon code. Use TESTCOUPON to test with." }
-    its(:story_type) { should == 'feature' }
-    its(:labels) { should == [{name:'cart'},{name:'coupon system'},{name:'checkout'}] }
-    its(:estimate) { should == 3 }
-    its(:requested_by) { should == 'Joe Developer' }
+    it { expect(subject.name).to eq "Make the cart accept coupons on checkout" }
+    it { expect(subject.description).to eq "When I get to the checkout phase, I want the ability to add an optional coupon code. Use TESTCOUPON to test with." }
+    it { expect(subject.story_type).to eq 'feature' }
+    it { expect(subject.labels).to eq [{name:'cart'},{name:'coupon system'},{name:'checkout'}] }
+    it { expect(subject.estimate).to eq 3 }
+    it { expect(subject.requested_by).to eq 'Joe Developer' }
   end
 end
