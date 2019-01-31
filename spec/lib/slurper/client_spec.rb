@@ -9,7 +9,7 @@ describe Slurper::Client do
 
   describe '#create' do
     let(:story) { Slurper::Story.new }
-    before { story.stub(:requested_by_id).and_return(11) }
+    before { allow(story).to receive(:requested_by_id).and_return(11) }
 
     it 'posts the story to pivotal' do
       expect(Typhoeus).to receive(:post).with(

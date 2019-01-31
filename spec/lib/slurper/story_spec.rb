@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Slurper::Story do
 
   before do
-    Slurper::User.stub(
-      collection: [Slurper::User.new(name: 'Johnny Hashrocket', id: 9)]
+    allow(Slurper::User).to receive(:collection).and_return(
+      [Slurper::User.new(name: 'Johnny Hashrocket', id: 9)]
     )
   end
 
@@ -134,7 +134,7 @@ describe Slurper::Story do
     let(:story) { described_class.new(requested_by: requested_by) }
 
     before do
-      Slurper::User.stub(collection: [Slurper::User.new(name: 'George Washington', id: 5)])
+      allow(Slurper::User).to receive(:collection).and_return([Slurper::User.new(name: 'George Washington', id: 5)])
     end
 
     context 'with a matching user' do

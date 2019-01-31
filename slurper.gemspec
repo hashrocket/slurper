@@ -6,7 +6,6 @@ Gem::Specification.new do |gem|
   gem.license = "MIT"
 
   gem.authors = ["Adam Lowe", "Paul Elliott", "Taylor Mock"]
-  gem.default_executable = 'slurp'
   gem.description = "Slurps stories from the given file (stories.slurper by default) and creates Pivotal Tracker stories from them. Useful during story carding sessions when you want to capture a number of stories quickly without clicking your way through the Tracker UI."
   gem.email = "dev@hashrocket.com"
   gem.executables = ["slurp"]
@@ -17,6 +16,6 @@ Gem::Specification.new do |gem|
   gem.require_path = "lib"
   gem.summary = "takes a formatted story file and puts it on Pivotal Tracker"
 
-  gem.add_dependency("activesupport", ["~> 4.1"])
+  gem.add_dependency("activesupport", ["~> 5.2"])
   gem.add_dependency("typhoeus", ["~> 0.6"])
 end
