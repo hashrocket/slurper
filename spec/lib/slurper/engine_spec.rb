@@ -53,4 +53,21 @@ describe Slurper::Engine do
     it { expect(subject.estimate).to eq 3 }
     it { expect(subject.requested_by).to eq 'Joe Developer' }
   end
+
+  context "given bad identation" do
+    let(:filename) { 'windows_google_doc_bad_indentation.slurper' }
+    it { expect(subject.name).to eq "Attorney Signs up through Attorney Portal" }
+    it { expect(subject.description).to eq <<~HEREDOC.strip }
+    Given I’m an Attorney
+    When I arrive at the attorney portal signup page
+    And I fill in the name field with my name
+    And I fill in the firm name field with my firm name
+    And I fill in the bar number with my state bar id number
+    And I click Submit
+    Then I am on the Attorney Portal Dashboard
+    HEREDOC
+    it { expect(subject.story_type).to eq 'feature' }
+    it { expect(subject.labels).to eq [{name:'attorney-portal'}] }
+    it { expect(subject.requested_by).to eq 'Johnny Hashrocket' }
+  end
 end
