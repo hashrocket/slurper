@@ -4,8 +4,8 @@ describe Slurper::User do
 
   describe '.collection' do
     before do
-      Slurper::Client.stub(
-        users: [
+      allow(Slurper::Client).to receive(:users).and_return(
+        [
           { "person" => { "id" => 100, "name" => "Emperor Palpatine" } },
           { "person" => { "id" => 101, "name" => "Darth Vader" } }
         ]
@@ -26,7 +26,7 @@ describe Slurper::User do
   describe '.find_by_name' do
     let(:user) { described_class.new(name: 'Awesome Guy', id: 9) }
     before do
-      Slurper::User.stub(collection: [user, described_class.new(name: 'Super Girl', id: 7)])
+      allow(Slurper::User).to receive(:collection).and_return([user, described_class.new(name: 'Super Girl', id: 7)])
     end
     subject { described_class.find_by_name(name) }
 
