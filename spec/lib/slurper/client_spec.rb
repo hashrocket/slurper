@@ -12,10 +12,10 @@ describe Slurper::Client do
     before { allow(story).to receive(:requested_by_id).and_return(11) }
 
     it 'posts the story to pivotal' do
-      expect(Typhoeus).to receive(:post).with(
+      expect(RestClient).to receive(:post).with(
         Slurper::Client::CREATE_STORY_URL,
-        body: story.to_json,
-        headers: { "Content-Type" => "application/json", "X-TrackerToken" => Slurper::Config.token }
+        story.to_json,
+        { "Content-Type" => "application/json", "X-TrackerToken" => Slurper::Config.token }
       )
       Slurper::Client.create(story)
     end
@@ -23,9 +23,9 @@ describe Slurper::Client do
 
   describe '#users' do
     it 'retrieves the users from pivotal' do
-      expect(Typhoeus).to receive(:get).with(
+      expect(RestClient).to receive(:get).with(
         Slurper::Client::USERS_URL,
-        headers: { "X-TrackerToken" => Slurper::Config.token }
+        { "X-TrackerToken" => Slurper::Config.token }
       )
       Slurper::Client.users
     end

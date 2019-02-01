@@ -16,5 +16,5 @@ Gem::Specification.new do |gem|
   gem.summary = "takes a formatted story file and puts it on Pivotal Tracker"
 
   gem.add_dependency("activesupport", ["~> 5.2"])
-  gem.add_dependency("typhoeus", ["~> 0.6"])
+  gem.add_dependency("rest-client")
 end

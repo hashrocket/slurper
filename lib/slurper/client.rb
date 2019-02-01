@@ -1,4 +1,4 @@
-require 'typhoeus'
+require 'rest-client'
 
 module Slurper
   class Client
@@ -6,18 +6,20 @@ module Slurper
     USERS_URL        = "https://www.pivotaltracker.com/services/v5/projects/#{Slurper::Config.project_id}/memberships"
 
     def self.create(story)
-      Typhoeus.post CREATE_STORY_URL,
-        body: story.to_json,
-        headers: {
+      RestClient.post(
+        CREATE_STORY_URL,
+        story.to_json,
+        {
           "Content-Type" => "application/json",
           "X-TrackerToken" => Slurper::Config.token
         }
+      )
     end
 
     def self.users
-      JSON.parse(Typhoeus.get(
+      JSON.parse(RestClient.get(
         USERS_URL,
-        headers: { "X-TrackerToken" => Slurper::Config.token }
+        { "X-TrackerToken" => Slurper::Config.token }
       ).try(:body) || '[]')
     end
   end
