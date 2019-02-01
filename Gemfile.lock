@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    slurper (2.1.0)
+    slurper (2.2.0)
       activesupport (~> 5.2)
       rest-client
 
