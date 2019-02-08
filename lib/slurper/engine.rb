@@ -23,12 +23,12 @@ module Slurper
 
     def yamlize_story_file
       IO.read(story_file)
-        .then {|x| x.strip}
-        .then {|x| x.gsub(/^ \b/, "  ") }
-        .then {|x| x.gsub(/^/, "    ") }
-        .then {|x| x.gsub(/ $/, "") }
-        .then {|x| x.gsub(/    ==.*/, "-") }
-        .then {|x| x.gsub(/    description:$/, "    description: |") }
+        .yield_self {|x| x.strip}
+        .yield_self {|x| x.gsub(/^ \b/, "  ") }
+        .yield_self {|x| x.gsub(/^/, "    ") }
+        .yield_self {|x| x.gsub(/ $/, "") }
+        .yield_self {|x| x.gsub(/    ==.*/, "-") }
+        .yield_self {|x| x.gsub(/    description:$/, "    description: |") }
     end
   end
 end

@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |gem|
   gem.name = "slurper"
-  gem.version = "2.2.0"
+  gem.version = "2.2.1"
   gem.license = "MIT"
 
   gem.authors = ["Adam Lowe", "Paul Elliott", "Taylor Mock", "Chris Erin"]

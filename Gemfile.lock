@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    slurper (2.2.0)
+    slurper (2.2.1)
       activesupport (~> 5.2)
       rest-client
 
@@ -70,7 +70,7 @@ DEPENDENCIES
   slurper!
 
 RUBY VERSION
-   ruby 2.6.0p0
+   ruby 2.5.3p105
 
 BUNDLED WITH
    2.0.1
