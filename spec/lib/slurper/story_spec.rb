@@ -107,6 +107,11 @@ describe Slurper::Story do
       let(:labels) { 'one,two' }
       it { should == [{name:'one'},{name:'two'}] }
     end
+
+    context 'with an array of labels' do
+      let(:labels) { %w[foo bar] }
+      it { should == [{name:'foo'},{name:'bar'}] }
+    end
   end
 
   describe "#requested_by" do

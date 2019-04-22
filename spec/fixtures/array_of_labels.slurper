@@ -1,0 +1,9 @@
+==
+story_type:
+  feature
+name:
+  Catchy Song
+labels:
+  - verse
+  - chorus
+  - hook

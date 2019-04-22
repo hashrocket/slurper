@@ -70,4 +70,9 @@ describe Slurper::Engine do
     it { expect(subject.labels).to eq [{name:'attorney-portal'}] }
     it { expect(subject.requested_by).to eq 'Johnny Hashrocket' }
   end
+
+  context "given a story with an array of labels" do
+    let(:filename) { 'array_of_labels.slurper' }
+    its(:labels) { should == [{name:'verse'},{name:'chorus'},{name:'hook'}] }
+  end
 end

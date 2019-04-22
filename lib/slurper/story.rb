@@ -41,9 +41,14 @@ module Slurper
 
     def labels
       return [] unless attributes[:labels].present?
-      attributes[:labels].split(',').map do |tag|
-        {name: tag}
-      end
+
+      array = if attributes[:labels].is_a? Array
+                attributes[:labels]
+              else
+                attributes[:labels].split ','
+              end
+
+      array.map { |tag| { name: tag } }
     end
 
     def requested_by
