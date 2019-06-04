@@ -171,8 +171,13 @@ Rocketeers after using it and finding it extremely handy.
 ### About
 
 [![Hashrocket logo](https://hashrocket.com/hashrocket_logo.svg)](https://hashrocket.com)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fhashrocket%2Fslurper.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fhashrocket%2Fslurper?ref=badge_shield)
 
 Slurper is supported by the team at [Hashrocket, a
 multidisciplinary design and development consultancy](https://hashrocket.com). If you'd like to [work with
 us](https://hashrocket.com/contact-us/hire-us) or [join our
 team](https://hashrocket.com/contact-us/jobs), don't hesitate to get in touch.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fhashrocket%2Fslurper.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fhashrocket%2Fslurper?ref=badge_large)
