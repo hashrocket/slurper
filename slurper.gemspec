@@ -15,6 +15,6 @@ Gem::Specification.new do |gem|
   gem.require_path = "lib"
   gem.summary = "takes a formatted story file and puts it on Pivotal Tracker"
 
-  gem.add_dependency("activesupport", ["~> 5.2"])
+  gem.add_dependency("activesupport", ">= 5.2", "< 7.0")
   gem.add_dependency("rest-client")
 end
