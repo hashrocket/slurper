@@ -54,7 +54,7 @@ GEM
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
     thread_safe (0.3.6)
-    tzinfo (1.2.5)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     unf (0.1.4)
       unf_ext
